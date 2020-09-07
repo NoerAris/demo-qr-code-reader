@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: Demo
+
+# Logging Config: FATAL, ERROR, WARN, INFO, DEBUG, TRACE
+# https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-logging.html#boot-features-logging-color-coded-output
+logging:
+  file: logs/qr-reader.log
+  level:
+    pattern:
+      console: "%d %-5level %logger : %msg%n"
+      file: "%d %-5level [%thread] %logger : %msg%n"
+    root: DEBUG
+    org:
+      springframework:
+        security: DEBUG
+        web: DEBUG
+        
+# Server Config
+server:
+  port: 8083
+  servlet:
+    contextPath: /
+    session.cookie.max-age: 31536000
+    session.timeout: 31536000
+    session.persistent: true
